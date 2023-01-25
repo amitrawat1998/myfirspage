@@ -4,7 +4,7 @@ import TextForm from './components/TextForm';
 import About from './components/About';
 import { useState } from 'react'
 import Alert from './components/Alert';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode,setDarkMode] = useState("light");
@@ -69,17 +69,19 @@ function App() {
   }
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
       {/* Pass props in function */}
       <NavBar title="Paytm Mloyal" aboutText ="About Mloyal" mode={mode} toggleMode={toggleMode} modeText={modeText} colorChangeGree={colorChangeGree} color={color}/>   
         <div className="container">
         <Alert alert={alert}/>
-            <Routes>
+        <About mode={mode}/>
+        <TextForm heading="Feedback" mode={mode} showAlert={showAlert} color={color}/>
+            {/* <Routes>
               <Route exact path="/About" element={<About mode={mode}/>} />
               <Route exact path="/" element={<TextForm heading="Feedback" mode={mode} showAlert={showAlert} color={color}/>} />
-            </Routes>
+            </Routes> */}
         </div>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
     </>
   );
 }
